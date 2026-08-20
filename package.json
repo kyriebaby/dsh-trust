@@ -1,0 +1,57 @@
+{
+  "name": "dsh-trust",
+  "version": "0.1.0",
+  "description": "Audit installed DeepSeek Harness plugins: enumerate third-party bundles and surface deterministic risk signals (install-time scripts, !!js config expressions, inject capability surface, supply-chain surface).",
+  "type": "module",
+  "main": "lib/index.js",
+  "license": "MIT",
+  "keywords": [
+    "deepseek",
+    "harness",
+    "dsh",
+    "dsh-plugin",
+    "security",
+    "audit",
+    "trust"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kyriechen/dsh-trust.git"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.0.1",
+    "@deepseek-ai/dsh-tools": "^0.0.1-rc.1"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-slots"
+      ]
+    }
+  },
+  "exports": {
+    ".": {
+      "default": "./lib/index.js"
+    },
+    "./client": {
+      "default": "./lib/client.js"
+    },
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "cordis.patch.yml",
+    "README.md",
+    "README.en.md",
+    "LICENSE",
+    "docs"
+  ],
+  "devDependencies": {
+    "esbuild": "^0.28.2"
+  }
+}
